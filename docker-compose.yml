@@ -1,0 +1,34 @@
+version: '3'
+
+networks:
+  main_network:
+    external: true
+
+services:
+  places_remember:
+    build: .
+    restart: on-failure
+    command: sh entrypoint.sh
+    environment:
+      DB_NAME: 'places_remember'
+      DB_USER: 'docker'
+      DB_HOST: 'db'
+      DB_PORT: '5432'
+      DB_PASSWORD: 'LEW9gpVBMwu6'
+    ports:
+      - 8000:80
+    networks:
+      - main_network
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    volumes:
+      - ./static:/opt/static/
+      - ./templates:/opt/templates/
+    ports:
+      - 80:80
+    depends_on:
+      - places_remember
+    networks:
+      - main_network

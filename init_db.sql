@@ -1,0 +1,3 @@
+CREATE USER docker WITH PASSWORD 'LEW9gpVBMwu6';
+CREATE DATABASE places_remember;
+GRANT ALL PRIVILEGES ON DATABASE places_remember TO docker;
