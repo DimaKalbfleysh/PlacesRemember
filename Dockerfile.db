@@ -1,0 +1,5 @@
+FROM postgres:11
+
+RUN apt-get update
+
+COPY init_db.sql /docker-entrypoint-initdb.d/
