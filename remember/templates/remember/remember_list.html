@@ -5,7 +5,7 @@
 {% for remember in remembers %}
 	
 	<div>
-		{{remember.city}}, {{remember.place}} 
+		<a href="{% url "remember_detail" pk=remember.pk %}">{{remember.city}}, {{remember.place}} </a>
 		<div>
 			<a href="{% url 'remember_update' pk=remember.pk %}">Update</a>
 			<form method="POST" action="{% url "remember_delete" pk=remember.pk %}">
