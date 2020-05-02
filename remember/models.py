@@ -13,8 +13,8 @@ class City(models.Model):
 	)
 
 	class Meta:
-        verbose_name = 'City'
-        verbose_name_plural = 'Cities'
+		verbose_name = 'City'
+		verbose_name_plural = 'Cities'
 
 	def __str__(self):
 		return f"{self.name}"
@@ -44,8 +44,8 @@ class Remember(models.Model):
 	)
 
 	class Meta:
-        verbose_name = 'Remember'
-        verbose_name_plural = 'Remembers'
+		verbose_name = 'Remember'
+		verbose_name_plural = 'Remembers'
 
 	def __str__(self):
 		return f"{self.city.name}, {self.place}"
