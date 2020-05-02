@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-123
+<a href="{% url 'remember_create' %}">Создать</a>
+{% for remember in remembers %}
+	
+	<div>
+		{{remember.city}}, {{remember.place}}
+	</div>
+
+{% endfor %}
 {% endblock %}
