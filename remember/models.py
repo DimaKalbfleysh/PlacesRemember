@@ -12,6 +12,10 @@ class City(models.Model):
 		default=0,
 	)
 
+	class Meta:
+        verbose_name = 'City'
+        verbose_name_plural = 'Cities'
+
 	def __str__(self):
 		return f"{self.name}"
 
@@ -38,6 +42,10 @@ class Remember(models.Model):
 	date = models.DateField(
 		verbose_name="Date of visit"
 	)
+
+	class Meta:
+        verbose_name = 'Remember'
+        verbose_name_plural = 'Remembers'
 
 	def __str__(self):
 		return f"{self.city.name}, {self.place}"
