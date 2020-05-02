@@ -1,7 +1,11 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import (
+	CreateView,
+	UpdateView,
+	DeleteView,
+)
 from django.urls import reverse
 
 from remember import models
@@ -31,6 +35,23 @@ class RememberCreate(RememberViewMixin, CreateView):
 	def form_valid(self, form):
 	    form.instance.user = self.request.user
 	    return super(RememberCreate, self).form_valid(form)
+
+	def get_success_url(self):
+	    return reverse("remember_list")
+
+
+class RememberUpdate(RememberViewMixin, UpdateView):
+	template_name = "remember/remember_form.html"
+
+	def form_valid(self, form):
+	    form.instance.user = self.request.user
+	    return super(RememberUpdate, self).form_valid(form)
+
+	def get_success_url(self):
+	    return reverse("remember_list")
+
+
+class RememberDelete(RememberViewMixin, DeleteView):
 
 	def get_success_url(self):
 	    return reverse("remember_list")

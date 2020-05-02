@@ -5,7 +5,13 @@
 {% for remember in remembers %}
 	
 	<div>
-		{{remember.city}}, {{remember.place}}
+		{{remember.city}}, {{remember.place}} 
+		<div>
+			<a href="{% url 'remember_update' pk=remember.pk %}">Update</a>
+			<form method="POST" action="{% url "remember_delete" pk=remember.pk %}">
+		   {% csrf_token %}<input type="submit" value="DELETE">
+		</form>
+		</div>
 	</div>
 
 {% endfor %}
