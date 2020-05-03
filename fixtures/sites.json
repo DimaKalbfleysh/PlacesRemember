@@ -1,0 +1,1 @@
+[{"model": "sites.site", "pk": 2, "fields": {"domain": "http://localhost:8000", "name": "http://localhost:8000"}}]
