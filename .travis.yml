@@ -10,8 +10,9 @@ addons:
 
 before_script:
   - psql -c "CREATE USER test_user WITH PASSWORD 'test_password';" -U postgres
-  - psql -c 'create database test;' -U test_user
-  - psql -U postgres -c "create extension postgis"
+  - psql -c 'CREATE DATABASE test;' -U postgres
+  - psql -c 'GRANT ALL PRIVILEGES ON DATABASE test TO test_password;' -U postgres
+  - psql -c "create extension postgis" -U postgres
 
 env:
   - DB_NAME='test' DB_USER='test_user' DB_PASSWORD='test_password' DB_HOST='127.0.0.1' DB_PORT='5432'
