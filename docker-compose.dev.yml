@@ -1,33 +1,23 @@
 version: '3'
 
+networks:
+  main_network:
+    external: true
+
 services:
-  db:
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_DB: 'places_remember_db'
-      POSTGRES_USER: 'places_rememver_user'
-      POSTGRES_PASSWORD: '4iyym2QC'
-    ports:
-      - "5432:5432"
-  wait_db:
-    image: willwill/wait-for-it
-    command: db:5432 --timeout=30
-    depends_on:
-      - db
   places_remember:
     build: .
     restart: always
     command: sh entrypoint.sh
     environment:
-      DB_NAME: 'places_remember_db'
-      DB_USER: 'places_rememver_user'
+      DB_NAME: 'places_remember'
+      DB_USER: 'docker'
       DB_HOST: 'db'
       DB_PORT: '5432'
-      DB_PASSWORD: '4iyym2QC'
+      DB_PASSWORD: 'LEW9gpVBMwu6'
     volumes:
       - .:/opt/app/:cached
     ports:
       - 8000:80
-    depends_on:
-      - "wait_db"
+    networks:
+      - main_network

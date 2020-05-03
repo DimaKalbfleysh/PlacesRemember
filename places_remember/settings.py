@@ -90,7 +90,7 @@ DB_PASSWORD = os.getenv('DB_PASSWORD')
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': DB_NAME,
         'USER': DB_USER,
         'HOST': DB_HOST,
@@ -151,7 +151,7 @@ SITE_ID = 2
 LOGIN_URL = 'accounts/login/'
 LOGIN_REDIRECT_URL = 'remember_list'
 LOGOUT_URL = 'logout'
-LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 ACCOUNT_EMAIL_REQUIRED = True 
 ACCOUNT_USERNAME_REQURIED = True
