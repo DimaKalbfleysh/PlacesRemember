@@ -1,5 +1,24 @@
+language: python
+
 sudo: required
-services:
-    - docker
+
+addons:
+  postgresql: 9.6
+  apt:
+    packages:
+    - postgresql-9.6-postgis-2.3
+
+before_script:
+  - psql -c "CREATE USER test_user WITH PASSWORD 'test_password';" -U postgres
+  - psql -c 'create database test;' -U test_user
+  - psql -U postgres -c "create extension postgis"
+
+env:
+  - DB_NAME='test'
+  - DB_USER='test_user'
+  - DB_PASSWORD='test_password'
+  - DB_HOST='127.0.0.1'
+  - DB_PORT='5432'
+
 script:
-    - docker-compose -f docker-compose.test.yml up --build
+    - python manage.py test
