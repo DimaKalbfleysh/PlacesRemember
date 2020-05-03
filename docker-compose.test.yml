@@ -5,6 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.db
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
     restart: always
     ports:
       - "5432:5432"
