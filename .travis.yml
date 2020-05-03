@@ -1,0 +1,13 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker-compose -f docker-compose.db.yml up --build -d
+    - docker ps
+    - docker-compose -f docker-compose.dev.yml up --build -d
+    - docker ps
+
+
+script:
+    - docker exec -it placesremember_places_remember_1 python manage.py test
