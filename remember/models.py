@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.gis.db import models as gis_models
 from django.contrib.auth.models import User
 
 
@@ -41,6 +42,11 @@ class Remember(models.Model):
 	)
 	date = models.DateField(
 		verbose_name="Date of visit"
+	)
+	point = gis_models.PointField(
+		verbose_name="Coordinates of visit",
+		srid=4326,
+		null=True,
 	)
 
 	class Meta:

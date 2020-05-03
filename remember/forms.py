@@ -1,5 +1,5 @@
 from django import forms
-
+from django.contrib.gis import forms as gis_forms
 from remember import models
 
 
@@ -8,6 +8,11 @@ class RememberForm(forms.ModelForm):
     place = forms.CharField(max_length=512, label="Место", required=True)
     description = forms.CharField(widget=forms.Textarea, label="Описание", required=False)
     date = forms.DateField(widget=forms.SelectDateWidget, label="Дата", required=True)
+    point = gis_forms.PointField(
+        widget=gis_forms.OSMWidget(
+            attrs={'map_width': 800, 'map_height': 500}
+        )
+    )
 
     class Meta:
         model = models.Remember
