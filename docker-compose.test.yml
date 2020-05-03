@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: 'places_remember'
+      POSTGRES_USER: 'docker'
+      POSTGRES_PASSWORD: 'LEW9gpVBMwu6'
+    ports:
+      - "5432:5432"
+  wait_db:
+    image: willwill/wait-for-it
+    command: db:5432 --timeout=30
+    depends_on:
+      - db
+  places_remember:
+    build: .
+    restart: on-failure
+    command: sh entrypoint.test.sh
+    environment:
+      DB_NAME: 'places_remember'
+      DB_USER: 'docker'
+      DB_HOST: 'db'
+      DB_PORT: '5432'
+      DB_PASSWORD: 'LEW9gpVBMwu6'
+    ports:
+      - 8000:80
