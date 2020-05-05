@@ -17,7 +17,7 @@ class RememberFormTest(TestCase):
 
 	@classmethod
 	def setUpTestData(cls):
-		city = City.objects.create(name="Москва", people_population=10000000)
+		City.objects.create(name="Москва", people_population=10000000)
 
 	def get_default_valid_form_data(self):
 		city = City.objects.get(name="Москва")
