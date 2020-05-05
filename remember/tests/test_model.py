@@ -17,7 +17,7 @@ class CityTest(TestCase):
 		City.objects.create(name="Москва", people_population=10000000)
 
 	def test_city_str_method(self):
-		city=City.objects.get(id=1)
+		city = City.objects.get(name="Москва")
 		expected_object_name = f"{city.name}"
 		self.assertEquals(expected_object_name, str(city))
 
