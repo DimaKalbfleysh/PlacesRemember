@@ -148,7 +148,7 @@ SOCIALACCOUNT_PROVIDERS = \
     }
 
 SITE_ID = 2
-LOGIN_URL = 'accounts/login/'
+LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = 'remember_list'
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
