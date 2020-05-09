@@ -1,4 +1,4 @@
-version: '3'
+version: '3.2'
 
 networks:
   main_network:
@@ -36,7 +36,7 @@ services:
       - privkey.pem
 
 secrets:
- fullchain.pem:
+  fullchain.pem:
    external: true
- privkey.pem:
+  privkey.pem:
    external: true
