@@ -15,6 +15,8 @@ services:
       DB_HOST: 'db'
       DB_PORT: '5432'
       DB_PASSWORD: 'LEW9gpVBMwu6'
+    volumes:
+      - ./assets:/opt/app/static
     ports:
       - 8000:80
     networks:
@@ -24,8 +26,7 @@ services:
       context: .
       dockerfile: Dockerfile.nginx
     volumes:
-      - ./static:/opt/static/
-      - ./templates:/opt/templates/
+      - ./assets:/opt/app/static
     ports:
       - 80:80
     depends_on:
