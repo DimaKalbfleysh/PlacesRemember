@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'remember_create' %}">Создать</a>
+{% for remember in remembers %}
+	
+	<div>
+		<a href="{% url "remember_detail" pk=remember.pk %}">{{remember.city}}, {{remember.place}} </a>
+		<div>
+			<a href="{% url 'remember_update' pk=remember.pk %}">Update</a>
+			<form method="POST" action="{% url "remember_delete" pk=remember.pk %}">
+		   {% csrf_token %}<input type="submit" value="DELETE">
+		</form>
+		</div>
+	</div>
+
+{% endfor %}
+{% endblock %}
