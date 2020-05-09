@@ -25,18 +25,11 @@ services:
       dockerfile: Dockerfile.nginx
     volumes:
       - ./assets:/opt/app/static
+      - /etc/ssl/places_remember/fullchain.pem:/etc/ssl/fullchain.pem
+      - /etc/ssl/places_remember/privkey.pem:/etc/ssl/privkey.pem
     ports:
       - 80:80
     depends_on:
       - places_remember
     networks:
       - main_network
-    secrets:
-      - fullchain.pem
-      - privkey.pem
-
-secrets:
-  fullchain.pem:
-   external: true
-  privkey.pem:
-   external: true
