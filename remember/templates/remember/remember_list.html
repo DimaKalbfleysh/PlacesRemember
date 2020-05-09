@@ -1,18 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<a href="{% url 'remember_create' %}">Создать</a>
-{% for remember in remembers %}
-	
-	<div>
-		<a href="{% url "remember_detail" pk=remember.pk %}">{{remember.city}}, {{remember.place}} </a>
-		<div>
-			<a href="{% url 'remember_update' pk=remember.pk %}">Update</a>
-			<form method="POST" action="{% url "remember_delete" pk=remember.pk %}">
-		   {% csrf_token %}<input type="submit" value="DELETE">
-		</form>
-		</div>
-	</div>
+{% if not remembers %}
+	<p>У вас нет ни одного воспоминания</p>
+{% endif %}
+<a class='btn btn-primary' href="{% url 'remember_create' %}">Добавить воспоминание</a>
+	<div class="row">
+	{% for remember in remembers %}
 
-{% endfor %}
+		<div class="col-sm-2">
+			<div class="card" style="width: 18rem;">
+			  <div class="card-body">
+			    <a href="{% url "remember_detail" pk=remember.pk %}"><h5 class="card-title">{{remember}}</h5></a>
+			    <p class="card-text">{{remember.description}}</p>
+			    <a href="{% url 'remember_update' pk=remember.pk %}">Обновить</a>
+			    <form method="POST" action="{% url "remember_delete" pk=remember.pk %}">
+				   {% csrf_token %}<input type="submit" value="Удалить"></form>
+			  </div>
+			</div>
+		</div>
+	{% endfor %}
+	</div>
 {% endblock %}

@@ -12,14 +12,15 @@
     {{ form.media }}
 </head>
 <body>
-    <div class="container-fluid">
-        <div>
-            <h1 class="text-white text-center">{% block title %}{% endblock %}</h1>
-            <div class="card p-5">
-                {% block content %}
-                {% endblock %}
-            </div>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="logout">
+            <div class="greeting">Здравствуйте, {{user.first_name}}!</div>
+            <a class="btn btn-outline-success" href="/accounts/logout/" >Выйти</a>
         </div>
+    </nav>
+    <div class='content'>
+        {% block content %}
+        {% endblock %}
     </div>
 </body>
 </html>
