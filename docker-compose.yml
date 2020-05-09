@@ -29,6 +29,7 @@ services:
       - /etc/ssl/places_remember/privkey.pem:/etc/ssl/privkey.pem
     ports:
       - 80:80
+      - 443:443
     depends_on:
       - places_remember
     networks:
