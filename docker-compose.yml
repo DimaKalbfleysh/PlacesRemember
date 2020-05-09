@@ -31,3 +31,12 @@ services:
       - places_remember
     networks:
       - main_network
+    secrets:
+      - fullchain.pem
+      - privkey.pem
+
+secrets:
+ fullchain.pem:
+   external: true
+ privkey.pem:
+   external: true
