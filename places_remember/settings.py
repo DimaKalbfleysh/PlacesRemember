@@ -126,7 +126,7 @@ AUTHENTICATION_BACKENDS = (
 SOCIALACCOUNT_PROVIDERS = \
     {'facebook':
        {'METHOD': 'oauth2',
-        'SCOPE': ['email','public_profile'],
+        'SCOPE': ['email','public_profile', 'user_friends'],
         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
         'FIELDS': [
             'id',
@@ -162,6 +162,7 @@ SOCIAL_AUTH_FACEBOOK_SECRET ='90872508325377af4c8e1e7b95aa06bc'
 
 LOGIN_EXEMPT_URLS = (
     r'^admin/',
+    r'^accounts/',
     r'^accounts/login/',
     r'^accounts/facebook/'
 )
