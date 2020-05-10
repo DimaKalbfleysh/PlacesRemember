@@ -126,8 +126,10 @@ AUTHENTICATION_BACKENDS = (
 SOCIALACCOUNT_PROVIDERS = \
     {'facebook':
        {'METHOD': 'oauth2',
+        'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
         'SCOPE': ['email','public_profile'],
         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'INIT_PARAMS': {'cookie': True},
         'FIELDS': [
             'id',
             'email',
@@ -143,7 +145,7 @@ SOCIALACCOUNT_PROVIDERS = \
         'EXCHANGE_TOKEN': True,
         'LOCALE_FUNC': lambda request: 'ru_RU',
         'VERIFIED_EMAIL': False,
-        'VERSION': 'v2.4'
+        'VERSION': 'v2.12',
         }
     }
 
