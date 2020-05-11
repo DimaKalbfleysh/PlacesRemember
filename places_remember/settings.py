@@ -154,6 +154,7 @@ LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = 'remember_list'
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 ACCOUNT_EMAIL_REQUIRED = True 
 ACCOUNT_USERNAME_REQURIED = True
