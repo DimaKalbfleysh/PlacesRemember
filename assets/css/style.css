@@ -7,6 +7,12 @@
 }
 
 .content{
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: #f2f2f2;
 }
 
 a.fb {
@@ -40,7 +46,7 @@ a.fb {
 }
 
 .login_content{
-	width: 100%;
+    width: 100%;
     min-height: 100vh;
     display: -webkit-box;
     display: -webkit-flex;
@@ -78,4 +84,12 @@ a.fb {
     color: #333333;
     line-height: 1.2;
     text-align: center;
+}
+
+.settings_element{
+    display: flex;
+}
+
+.settings_item{
+    margin-left: 10px;
 }
