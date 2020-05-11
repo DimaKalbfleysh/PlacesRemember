@@ -13,9 +13,13 @@
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark">
+        <div>
+            <a class="btn btn-primary" href="/remember/list/" >Главная</a>
+        </div>
+        <span style="color: white;">PlacesRemembers</span>
         <div class="logout">
             <div class="greeting">Здравствуйте, {{user.first_name}}!</div>
-            <a class="btn btn-outline-success" href="/accounts/logout/" >Выйти</a>
+            <a class="btn btn-danger" href="/accounts/logout/" >Выйти</a>
         </div>
     </nav>
     <div class='content'>
