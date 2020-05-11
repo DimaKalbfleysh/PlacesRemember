@@ -1,5 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{{object}}
+<div><span>Место: </span>{{object}}</div>
+<div><span>Дата: </span>{{object.date}}</div>
+<div><span>Описание: </span>{{object.discription}}</div>
+<div><span>Широта: </span>{{object.point.x}}</div>
+<div><span>Долгота: </span>{{object.point.y}}</div>
+<div class="settings_element">
+	<a href="{% url 'remember_update' pk=remember.pk %}" class="btn btn-primary settings_item">Обновить</a>
+    <form method="POST" action="{% url "remember_delete" pk=remember.pk %}">
+	   {% csrf_token %}
+	   <button class="btn btn-danger settings_item">Удалить</button>
+	</form>
+</div>
 {% endblock %}
