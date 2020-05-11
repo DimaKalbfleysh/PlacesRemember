@@ -4,21 +4,34 @@
 {% if not remembers %}
 	<p>У вас нет ни одного воспоминания</p>
 {% endif %}
-<a class='btn btn-primary' href="{% url 'remember_create' %}">Добавить воспоминание</a>
-	<div class="row">
-	{% for remember in remembers %}
 
-		<div class="col-sm-2">
-			<div class="card" style="width: 18rem;">
-			  <div class="card-body">
-			    <a href="{% url "remember_detail" pk=remember.pk %}"><h5 class="card-title">{{remember}}</h5></a>
-			    <p class="card-text">{{remember.description}}</p>
-			    <a href="{% url 'remember_update' pk=remember.pk %}">Обновить</a>
+
+<a class='btn btn-success' style="width: 100%" href="{% url 'remember_create' %}">Добавить воспоминание</a>
+
+
+<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+  <div class="carousel-inner" role="listbox">
+
+
+    <div class="carousel-item active">
+	{% for remember in remembers %}
+      <div class="col-md-3" style="float:left">
+       <div class="card mb-2">
+          <div class="card-body" style="min-height: 200px;">
+            <a href="{% url "remember_detail" pk=remember.pk %}"><h5 class="card-title">{{remember}}</h5></a>
+            <p class="card-text" style="min-height: 50px;">{{remember.description}}</p>
+            <div class="settings_element">
+            	<a href="{% url 'remember_update' pk=remember.pk %}" class="btn btn-primary settings_item">Обновить</a>
 			    <form method="POST" action="{% url "remember_delete" pk=remember.pk %}">
-				   {% csrf_token %}<input type="submit" value="Удалить"></form>
-			  </div>
-			</div>
-		</div>
+				   {% csrf_token %}
+				   <button class="btn btn-danger settings_item">Удалить</button>
+				</form>
+            </div>
+          </div>
+        </div>
+      </div>
 	{% endfor %}
-	</div>
+    </div>
+  </div>
+</div>
 {% endblock %}
