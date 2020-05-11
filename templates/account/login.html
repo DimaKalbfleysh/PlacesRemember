@@ -1,5 +1,6 @@
 {% extends "account/base.html" %}
 {% load account socialaccount %}
+{% providers_media_js %}
 
 <div class="row">
 {% block content %}
@@ -8,13 +9,22 @@
 
   {% if socialaccount_providers %}
 
-  <div class="socialaccount_ballot">
+  <div class="wrap-login100">
+    <div class='login100-form'>
+      <span class="login100-form-title p-b-26">
+            PlacesRemembers
+          </span>
+      <div class="container-login100-form-btn">
+            <div class="wrap-login100-form-btn">
+              <div class="login100-form-bgbtn"></div>
+                 <a href="{% provider_login_url "facebook" method="js_sdk" %}" class="fb connect login100-form-btn">Войти с помощью Facebook</a>
+            </div>
+          </div>
+      <ul class="socialaccount_providers">
+       
+      </ul>
 
-    <ul class="socialaccount_providers">
-      {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-    </ul>
-
-
+    </div>
   </div>
 
   {% include "socialaccount/snippets/login_extra.html" %}

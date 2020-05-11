@@ -1,11 +1,21 @@
-{% load staticfiles %}
+{% load static %}
 <!DOCTYPE html>
-<html>
-  <head>
-    
-  </head>
-  <body>
-      {% block content %}
-      {% endblock %}
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous" />
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>PlacesRemember</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+    </nav>
+    <div class='login_content'>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
 </html>
